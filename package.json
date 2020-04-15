@@ -1,0 +1,10 @@
+{
+  "name": "text-adventure",
+  "version": "1.0.0",
+  "description": "Text Adventure Game",
+  "main": "index.js",
+  "repository": "https://github.com/ajlammiman/text-adventure.git",
+  "author": "alammiman",
+  "license": "MIT",
+  "private": false
+}
