@@ -1,5 +1,5 @@
 import React from 'react'
-import { Content } from './game.js'
+import { Content } from './content.service.js'
 
 export const Game = () => {
     const { content } = Content(); 

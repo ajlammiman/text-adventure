@@ -8,3 +8,4 @@ test('when game starts message is displayed', () => {
 
     expect(getByText('Welcome to the adventure!')).toBeInTheDocument();
 });
+
