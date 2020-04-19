@@ -1,0 +1,1 @@
+export const screentext = 'Welcome to the adventure!';
