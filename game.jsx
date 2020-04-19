@@ -1,7 +1,6 @@
 import React from 'react'
-import { Content } from './content.service.js'
 
-export const Game = () => {
-    const { content } = Content(); 
+export const Game = ({contentService}) => {
+    const { content } = contentService(); 
     return <div>{content}</div>
 }
