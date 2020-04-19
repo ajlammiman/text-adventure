@@ -1,1 +1,6 @@
-export const screentext = 'Welcome to the adventure!';
+
+export const Content = () => {
+    return {
+        content: 'Welcome to the adventure!'
+    };
+}

@@ -1,4 +1,7 @@
 import React from 'react'
-import { screentext } from './game.js'
+import { Content } from './game.js'
 
-export const Game = () => <div>{screentext}</div>
+export const Game = () => {
+    const { content } = Content(); 
+    return <div>{content}</div>
+}
