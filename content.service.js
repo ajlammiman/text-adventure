@@ -1,6 +1,10 @@
+import { useState } from "react";
 
 export const ContentService = () => {
+    const [ content, setContent ] = useState(`Welcome to the adventure!`);
+
     return {
-        content: 'Welcome to the Adventure Game. You stand outside a spooky house. Do you want to go in?'
+        content,
+        setContent
     };
 }
