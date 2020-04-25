@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export const useGame = (gameContent) => {
-    const [ content, setContent ] = useState(gameContent.start);
+export const useGame = (contentService) => {
+    const [ content, setContent ] = useState(contentService.start);
 
-    const help = () => setContent(gameContent.help);
+    const help = () => setContent(contentService.help);
 
     return {
         content,

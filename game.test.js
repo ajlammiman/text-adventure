@@ -5,13 +5,13 @@ import { Game } from './game.jsx'
 import content from './content.mock.json'
 
 test('when game starts message is displayed', () => {
-    const {getByText} = render(<Game gameContent={content} />);
+    const {getByText} = render(<Game contentService={content} />);
 
     expect(getByText('Welcome to the adventure!')).toBeInTheDocument();
 });
 
 test('When requesting help the available commands are listed.', () =>{
-    const { getByText, getByTitle } = render(<Game gameContent={content} />);
+    const { getByText, getByTitle } = render(<Game contentService={content} />);
 
     fireEvent.click(getByTitle(`Help`));
 

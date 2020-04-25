@@ -1,8 +1,8 @@
 import React from 'react'
 import { useGame } from './game.js'
 
-export const Game = ({gameContent}) => {
-    const { content, help } = useGame(gameContent);
+export const Game = ({contentService}) => {
+    const { content, help } = useGame(contentService);
      
     return <>
         <div>{content}</div>
