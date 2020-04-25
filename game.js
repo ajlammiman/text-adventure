@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ContentService = (gameContent) => {
+export const useGame = (gameContent) => {
     const [ content, setContent ] = useState(gameContent.start);
 
     const help = () => setContent(gameContent.help);
@@ -9,9 +9,4 @@ export const ContentService = (gameContent) => {
         content,
         help
     };
-}
-
-const gameContent = {
-    start : `Welcome to the adventure!`,
-    help : `Help is at hand!`
 }
