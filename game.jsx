@@ -6,6 +6,6 @@ export const Game = () => {
      
     return <>
         <div>{content}</div>
-        <div><button title="Help" onClick={() => setContent(`Help is at hand!`)} /></div>
+        <div><button title="Help" onClick={() => setContent(`Help is at hand!`)}>Help</button></div>
     </>
 }
