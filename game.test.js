@@ -2,15 +2,16 @@ import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { Game } from './game.jsx'
+import content from './content.mock.json'
 
 test('when game starts message is displayed', () => {
-    const {getByText} = render(<Game gameContent={gameContent} />);
+    const {getByText} = render(<Game gameContent={content} />);
 
     expect(getByText('Welcome to the adventure!')).toBeInTheDocument();
 });
 
 test('When requesting help the available commands are listed.', () =>{
-    const { getByText, getByTitle } = render(<Game gameContent={gameContent} />);
+    const { getByText, getByTitle } = render(<Game gameContent={content} />);
 
     fireEvent.click(getByTitle(`Help`));
 
