@@ -4,13 +4,13 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 import { Game } from './game.jsx'
 
 test('when game starts message is displayed', () => {
-    const {getByText} = render(<Game />);
+    const {getByText} = render(<Game gameContent={gameContent} />);
 
     expect(getByText('Welcome to the adventure!')).toBeInTheDocument();
 });
 
 test('When requesting help the available commands are listed.', () =>{
-    const { getByText, getByTitle } = render(<Game />);
+    const { getByText, getByTitle } = render(<Game gameContent={gameContent} />);
 
     fireEvent.click(getByTitle(`Help`));
 
@@ -18,4 +18,9 @@ test('When requesting help the available commands are listed.', () =>{
         expect(getByText('Help is at hand!')).toBeInTheDocument();
     });
 });
+
+const gameContent = {
+    start : `Welcome to the adventure!`,
+    help : `Help is at hand!`
+}
 
