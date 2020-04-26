@@ -9,12 +9,21 @@ test('a start message to be returned', () => {
     expect(gameContent.start()).toEqual('Welcome to the adventure!');
 })
 
+test('a start message must be included', () => {
+    expect(GameContent({start:""}).start).toThrow('content must have a start message.')
+})
+
 
 const GameContent = (content) => {
     if (!content) 
-            throw('content must be supplied.');
+        throw('content must be supplied.');
     
-    const start = () => content.start; 
+    const start = () => {
+        if (!content.start) 
+            throw('content must have a start message.');
+
+        return content.start
+    }; 
     
     return {
         start
