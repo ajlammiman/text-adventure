@@ -1,4 +1,6 @@
 import content from './content.mock.json'
+import {GameContent} from './game.content.js'
+
 test('content must be supplied', () => {
     expect(GameContent).toThrow('content must be supplied.')
 })
@@ -24,27 +26,3 @@ test('a help message must be included', () => {
 })
 
 
-const GameContent = (content) => {
-    if (!content) 
-        throw('content must be supplied.');
-    
-    const start = () => {
-        if (!content.start) 
-            throw('content must have a start message.');
-
-        return content.start
-    }; 
-
-    const help = () => {
-        if (!content.help) 
-            throw('content must have a help message.');
-
-        return content.help
-    }; 
-
-
-    return {
-        start,
-        help
-    }
-}
