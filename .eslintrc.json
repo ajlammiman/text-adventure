@@ -1,0 +1,52 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:react/recommended",
+        "prettier",
+        "plugin:testing-library/recommended"
+    ],
+    "globals": {
+        "expect" : "readonly",
+        "test" : "readonly",
+        "beforeEach" : "readonly",
+        "afterEach" : "readonly",
+        "jest" : "readonly",
+        "describe" : "readonly",
+        "require" : "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "prettier",
+        "testing-library"
+    ],
+    "rules": {
+        "react/prop-types": 0,
+        "no-unused-vars": ["error", { "argsIgnorePattern": "_" }],
+        "prettier/prettier": [ "error", {"singleQuote": true, "endOfLine":"auto", "trailingComma": "none", "printWidth": 120}],
+        "eqeqeq": ["error", "always"],
+        "testing-library/await-async-query": "error",
+        "testing-library/no-await-sync-query": "error",
+        "testing-library/no-debug": "warn"
+    },
+    "settings": {
+        "react" : {
+            "version": "detect"
+        }
+    },
+    "ignorePatterns": [ "dist/*" ]
+
+}

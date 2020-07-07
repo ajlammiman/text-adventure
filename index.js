@@ -1,13 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Game } from './game.jsx'
-import content from './content.json'
-import {GameContent} from './game.content.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const gameContent = GameContent(content);
-
-export const App = () => <><Game gameContent={gameContent} /></>
+export const App = () => <></>;
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
