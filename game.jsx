@@ -1,3 +1,4 @@
 import React from 'react';
+import content from './content.js';
 
-export const Game = () => <>Welcome to the game!</>;
+export const Game = () => <>{content.welcomeContent()}</>;
