@@ -1,7 +1,5 @@
 export const content = () => {
-  const welcomeContent = () => {
-    return '';
-  };
+  const welcomeContent = ``;
 
   return {
     welcomeContent
