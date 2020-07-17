@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { Game } from '../game.jsx';
 
 jest.mock('../content', () => ({
-  welcomeContent: 'Welcome to the game!'
+  welcome: 'Welcome to the game!'
 }));
 
 test('start message', () => {
