@@ -8,7 +8,10 @@
         "plugin:react-hooks/recommended",
         "plugin:react/recommended",
         "prettier",
-        "plugin:testing-library/recommended"
+        "plugin:testing-library/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
     ],
     "globals": {
         "expect" : "readonly",
@@ -40,7 +43,8 @@
         "eqeqeq": ["error", "always"],
         "testing-library/await-async-query": "error",
         "testing-library/no-await-sync-query": "error",
-        "testing-library/no-debug": "warn"
+        "testing-library/no-debug": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": 0
     },
     "settings": {
         "react" : {

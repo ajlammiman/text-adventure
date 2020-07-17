@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
-import { Game } from '../game.jsx';
+import { Game } from '../game.tsx';
 
 jest.mock('../content', () => ({
   welcome: 'Welcome to the game!'
