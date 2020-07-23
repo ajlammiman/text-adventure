@@ -1,5 +1,11 @@
 const contentSource = require(`./content/content.json`);
 
-export const content: { welcome: string } = {
-  welcome: contentSource.welcome
+interface gameContent {
+  welcome: string;
+  help: string;
+}
+
+export const content: gameContent = {
+  welcome: contentSource.welcome,
+  help: ''
 };
