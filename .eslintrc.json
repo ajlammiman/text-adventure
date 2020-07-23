@@ -44,7 +44,8 @@
         "testing-library/await-async-query": "error",
         "testing-library/no-await-sync-query": "error",
         "testing-library/no-debug": "warn",
-        "@typescript-eslint/explicit-module-boundary-types": 0
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-var-requires": 0
     },
     "settings": {
         "react" : {
