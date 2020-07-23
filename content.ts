@@ -7,5 +7,5 @@ interface gameContent {
 
 export const content: gameContent = {
   welcome: contentSource.welcome,
-  help: ''
+  help: contentSource.help
 };
