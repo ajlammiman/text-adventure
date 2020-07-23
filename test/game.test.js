@@ -1,6 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Game } from '../game.tsx';
 
 jest.mock('../content', () => ({
@@ -14,7 +15,6 @@ test('when game starts a message appears', () => {
 
 test('when help is asked for a help message appears', () => {
   render(<Game />);
-  const help = screen.getByRole('button', { name: /help/i });
-  fireEvent.click(help);
+  userEvent.click(screen.getByRole('button', { name: /help/i }));
   expect(screen.getByText('This is a help message')).toBeInTheDocument();
 });
