@@ -28,24 +28,26 @@ test('player can ask for help', () => {
 
 test('player can look left', () => {
   render(<Game />);
-  userEvent.click(screen.getByRole('button', { name: /look left/i }));
+  clickButton(/look left/i);
   expect(screen.getByText('looking left')).toBeInTheDocument();
 });
 
 test('player can look right', () => {
   render(<Game />);
-  userEvent.click(screen.getByRole('button', { name: /look right/i }));
+  clickButton(/look right/i);
   expect(screen.getByText('looking right')).toBeInTheDocument();
 });
 
 test('player can look ahead', () => {
   render(<Game />);
-  userEvent.click(screen.getByRole('button', { name: /look ahead/i }));
+  clickButton(/look ahead/i);
   expect(screen.getByText('looking right in front of you')).toBeInTheDocument();
 });
 
 test('player can look behind', () => {
   render(<Game />);
-  userEvent.click(screen.getByRole('button', { name: /look behind/i }));
+  clickButton(/look behind/i);
   expect(screen.getByText('looking right behind of you')).toBeInTheDocument();
 });
+
+const clickButton = (text) => userEvent.click(screen.getByRole('button', { name: text }));
