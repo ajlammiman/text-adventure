@@ -2,5 +2,6 @@
     "welcome": "Welcome to the game.",
     "help": "Here's some help",
     "left": "Looking left I see some stuff",
-    "right": "Looking right I see some stuff"
+    "right": "Looking right I see some stuff",
+    "ahead": "Looking ahead I see some stuff"
 }

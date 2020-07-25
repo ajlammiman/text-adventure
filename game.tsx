@@ -10,6 +10,7 @@ export const Game = () => {
       <button onClick={() => setDisplayContent(content.help)}>help</button>
       <button onClick={() => setDisplayContent(content.left)}>Look Left</button>
       <button onClick={() => setDisplayContent(content.right)}>Look Right</button>
+      <button onClick={() => setDisplayContent(content.ahead)}>Look Ahead</button>
     </>
   );
 };

@@ -9,7 +9,8 @@ jest.mock('../content', () => ({
     welcome: 'Welcome to the game!',
     help: 'This is a help message',
     left: 'looking left',
-    right: 'looking right'
+    right: 'looking right',
+    ahead: 'looking right in front of you'
   }
 }));
 
@@ -34,4 +35,10 @@ test('player can look right', () => {
   render(<Game />);
   userEvent.click(screen.getByRole('button', { name: /look right/i }));
   expect(screen.getByText('looking right')).toBeInTheDocument();
+});
+
+test('player can look ahead', () => {
+  render(<Game />);
+  userEvent.click(screen.getByRole('button', { name: /look ahead/i }));
+  expect(screen.getByText('looking right in front of you')).toBeInTheDocument();
 });
