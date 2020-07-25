@@ -17,37 +17,38 @@ jest.mock('../content', () => ({
 
 test('when game starts player is welcomed', () => {
   render(<Game />);
-  expect(screen.getByText('Welcome to the game!')).toBeInTheDocument();
+  checkForText('Welcome to the game!');
 });
 
 test('player can ask for help', () => {
   render(<Game />);
-  userEvent.click(screen.getByRole('button', { name: /help/i }));
-  expect(screen.getByText('This is a help message')).toBeInTheDocument();
+  clickButton(/help/i);
+  checkForText('This is a help message');
 });
 
 test('player can look left', () => {
   render(<Game />);
   clickButton(/look left/i);
-  expect(screen.getByText('looking left')).toBeInTheDocument();
+  checkForText('looking left');
 });
 
 test('player can look right', () => {
   render(<Game />);
   clickButton(/look right/i);
-  expect(screen.getByText('looking right')).toBeInTheDocument();
+  checkForText('looking right');
 });
 
 test('player can look ahead', () => {
   render(<Game />);
   clickButton(/look ahead/i);
-  expect(screen.getByText('looking right in front of you')).toBeInTheDocument();
+  checkForText('looking right in front of you');
 });
 
 test('player can look behind', () => {
   render(<Game />);
   clickButton(/look behind/i);
-  expect(screen.getByText('looking right behind of you')).toBeInTheDocument();
+  checkForText('looking right behind of you');
 });
 
 const clickButton = (text) => userEvent.click(screen.getByRole('button', { name: text }));
+const checkForText = (text) => expect(screen.getByText(text)).toBeInTheDocument();
