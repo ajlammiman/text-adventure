@@ -6,6 +6,7 @@ interface gameContent {
   left: string;
   right: string;
   ahead: string;
+  behind: string;
 }
 
 export const content: gameContent = {
@@ -13,5 +14,6 @@ export const content: gameContent = {
   help: contentSource.help,
   left: contentSource.left,
   right: contentSource.right,
-  ahead: contentSource.ahead
+  ahead: contentSource.ahead,
+  behind: contentSource.behind
 };
