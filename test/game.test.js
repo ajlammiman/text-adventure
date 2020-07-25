@@ -5,16 +5,22 @@ import userEvent from '@testing-library/user-event';
 import { Game } from '../game.tsx';
 
 jest.mock('../content', () => ({
-  content: { welcome: 'Welcome to the game!', help: 'This is a help message' }
+  content: { welcome: 'Welcome to the game!', help: 'This is a help message', left: 'looking left' }
 }));
 
-test('when game starts a message appears', () => {
+test('when game starts player is welcomed', () => {
   render(<Game />);
   expect(screen.getByText('Welcome to the game!')).toBeInTheDocument();
 });
 
-test('when help is asked for a help message appears', () => {
+test('player can ask for help', () => {
   render(<Game />);
   userEvent.click(screen.getByRole('button', { name: /help/i }));
   expect(screen.getByText('This is a help message')).toBeInTheDocument();
+});
+
+test('player can look left', () => {
+  render(<Game />);
+  userEvent.click(screen.getByRole('button', { name: /look left/i }));
+  expect(screen.getByText('looking left')).toBeInTheDocument();
 });
