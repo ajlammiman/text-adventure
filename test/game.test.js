@@ -5,7 +5,12 @@ import userEvent from '@testing-library/user-event';
 import { Game } from '../game.tsx';
 
 jest.mock('../content', () => ({
-  content: { welcome: 'Welcome to the game!', help: 'This is a help message', left: 'looking left' }
+  content: {
+    welcome: 'Welcome to the game!',
+    help: 'This is a help message',
+    left: 'looking left',
+    right: 'looking right'
+  }
 }));
 
 test('when game starts player is welcomed', () => {
@@ -23,4 +28,10 @@ test('player can look left', () => {
   render(<Game />);
   userEvent.click(screen.getByRole('button', { name: /look left/i }));
   expect(screen.getByText('looking left')).toBeInTheDocument();
+});
+
+test('player can look right', () => {
+  render(<Game />);
+  userEvent.click(screen.getByRole('button', { name: /look right/i }));
+  expect(screen.getByText('looking right')).toBeInTheDocument();
 });
