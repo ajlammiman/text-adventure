@@ -2,11 +2,11 @@ import { content } from '../content';
 
 const contentSource = require(`../content/content.json`);
 const welcome = contentSource.welcome;
-const helpMessage = contentSource.help;
-const leftMessage = contentSource.left;
-const rightMessage = contentSource.right;
-const aheadMessage = contentSource.ahead;
-const behindMessage = contentSource.behind;
+const help = contentSource.help;
+const left = contentSource.left;
+const right = contentSource.right;
+const ahead = contentSource.ahead;
+const behind = contentSource.behind;
 
 const welcomeContent = content.welcome;
 const helpContent = content.help;
@@ -20,21 +20,21 @@ test('welcome content is available', () => {
 });
 
 test('help content is available', () => {
-  expect(helpContent).toBe(helpMessage);
+  expect(helpContent).toBe(help);
 });
 
 test('looking left content is available', () => {
-  expect(leftContent).toBe(leftMessage);
+  expect(leftContent).toBe(left);
 });
 
 test('looking right content is available', () => {
-  expect(rightContent).toBe(rightMessage);
+  expect(rightContent).toBe(right);
 });
 
 test('looking ahead content is available', () => {
-  expect(aheadContent).toBe(aheadMessage);
+  expect(aheadContent).toBe(ahead);
 });
 
 test('looking behind content is available', () => {
-  expect(behindContent).toBe(behindMessage);
+  expect(behindContent).toBe(behind);
 });
