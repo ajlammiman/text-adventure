@@ -1,6 +1,6 @@
 const contentSource = require(`./content/content.json`);
 
-interface gameContent {
+export interface GameContent {
   welcome: string;
   help: string;
   left: string;
@@ -9,7 +9,7 @@ interface gameContent {
   behind: string;
 }
 
-export const content: gameContent = {
+export const content: GameContent = {
   welcome: contentSource.welcome,
   help: contentSource.help,
   left: contentSource.left,
