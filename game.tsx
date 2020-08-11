@@ -17,13 +17,12 @@ export const Game = () => {
   );
 };
 
-const Looking = ({
-  content,
-  setDisplayContent
-}: {
+interface ActionComponent {
   content: GameContent;
   setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+}
+
+const Looking = ({ content, setDisplayContent }: ActionComponent) => {
   return (
     <>
       <button onClick={() => setDisplayContent(content.left)}>Look Left</button>
