@@ -4,5 +4,9 @@
     "left": "Looking left I see some stuff",
     "right": "Looking right I see some stuff",
     "ahead": "Looking ahead I see some stuff",
-    "behind": "Looking behind I see some stuff"
+    "behind": "Looking behind I see some stuff",
+    "fowards": "going forwards",
+    "backwards": "going backwards",
+    "movingLeft": "moving left",
+    "movingRight": "moving right"
 }

@@ -7,6 +7,10 @@ export interface GameContent {
   right: string;
   ahead: string;
   behind: string;
+  forwards: string;
+  backwards: string;
+  movingLeft: string;
+  movingRight: string;
 }
 
 export const content: GameContent = {
@@ -15,5 +19,9 @@ export const content: GameContent = {
   left: contentSource.left,
   right: contentSource.right,
   ahead: contentSource.ahead,
-  behind: contentSource.behind
+  behind: contentSource.behind,
+  forwards: contentSource.forwards,
+  backwards: contentSource.backwards,
+  movingLeft: contentSource.movingLeft,
+  movingRight: contentSource.movingRight
 };

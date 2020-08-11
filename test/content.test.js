@@ -7,6 +7,10 @@ const left = contentSource.left;
 const right = contentSource.right;
 const ahead = contentSource.ahead;
 const behind = contentSource.behind;
+const forwards = contentSource.forwards;
+const backwards = contentSource.backwards;
+const movingLeft = contentSource.movingLeft;
+const movingRight = contentSource.movingRight;
 
 const welcomeContent = content.welcome;
 const helpContent = content.help;
@@ -14,6 +18,10 @@ const leftContent = content.left;
 const rightContent = content.right;
 const aheadContent = content.ahead;
 const behindContent = content.behind;
+const forwardsContent = content.forwards;
+const backwardsContent = content.backwards;
+const movingLeftContent = content.movingLeft;
+const movingRightContent = content.movingRight;
 
 test('welcome content is available', () => {
   expect(welcomeContent).toBe(welcome);
@@ -37,4 +45,20 @@ test('looking ahead content is available', () => {
 
 test('looking behind content is available', () => {
   expect(behindContent).toBe(behind);
+});
+
+test('moving forwards content is available', () => {
+  expect(forwardsContent).toBe(forwards);
+});
+
+test('moving backwards content is available', () => {
+  expect(backwardsContent).toBe(backwards);
+});
+
+test('moving left content is available', () => {
+  expect(movingLeftContent).toBe(movingLeft);
+});
+
+test('moving right content is available', () => {
+  expect(movingRightContent).toBe(movingRight);
 });

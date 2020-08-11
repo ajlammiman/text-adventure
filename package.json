@@ -9,7 +9,8 @@
   "private": false,
   "dependencies": {
     "@types/react": "^16.9.43",
-    "jest": "^25.3.0"
+    "jest": "^25.3.0",
+    "parcel": "^1.12.4"
   },
   "jest": {
     "projects": [
