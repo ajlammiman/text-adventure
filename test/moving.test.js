@@ -9,7 +9,10 @@ jest.mock('../content', () => ({
     forwards: 'you have moved forward',
     backwards: 'you have moved backwards',
     movingLeft: 'you have moved left',
-    movingRight: 'you have moved right'
+    movingRight: 'you have moved right',
+    location: {
+      description: 'you have moved forward'
+    }
   }
 }));
 

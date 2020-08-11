@@ -8,5 +8,8 @@
     "fowards": "going forwards",
     "backwards": "going backwards",
     "movingLeft": "moving left",
-    "movingRight": "moving right"
+    "movingRight": "moving right",
+    "location": {
+        "description" : "going forwards"
+    }
 }
