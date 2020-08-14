@@ -28,9 +28,11 @@ export const content: GameContent = {
 };
 
 export interface Location {
+  name: string;
   description: string;
 }
 
 export const location: Location = {
+  name: locationSource.location.name,
   description: locationSource.location.description
 };
