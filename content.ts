@@ -34,6 +34,11 @@ export interface Location {
   right: string;
   behind: string;
   front: string;
+  surroundings: Surroundings;
+}
+
+interface Surroundings {
+  left: string;
 }
 
 export const location: Location = {
@@ -42,5 +47,6 @@ export const location: Location = {
   left: locationSource.location.left,
   right: locationSource.location.right,
   behind: locationSource.location.behind,
-  front: locationSource.location.front
+  front: locationSource.location.front,
+  surroundings: { left: locationSource.location.left }
 };
