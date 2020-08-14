@@ -15,13 +15,13 @@ test('a location knows what is on its left', () => {
 });
 
 test('a location knows what is on its right', () => {
-  expect(location.right).toBe(locationContent.location.right);
+  expect(location.surroundings.right).toBe(locationContent.location.surroundings.right);
 });
 
 test('a location knows what is behind it', () => {
-  expect(location.behind).toBe(locationContent.location.behind);
+  expect(location.surroundings.behind).toBe(locationContent.location.surroundings.behind);
 });
 
 test('a location knows what is in front of it', () => {
-  expect(location.front).toBe(locationContent.location.front);
+  expect(location.surroundings.front).toBe(locationContent.location.surroundings.front);
 });

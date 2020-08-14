@@ -2,11 +2,11 @@
     "location": {
         "name": "home",
         "description" : "is where the heart is",
-        "right": "location 2",
-        "behind": "location 3",
-        "front": "location 4",
         "surroundings": {
-            "left": "left location"
+            "left": "left location",
+            "right": "right location",
+            "behind": "behind you!",
+            "front": "to the front"
         }
     }
 }
