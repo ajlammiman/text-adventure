@@ -7,11 +7,7 @@ import { clickButton, checkForText } from './test.helper.actions.js';
 jest.mock('../content', () => ({
   content: {
     welcome: 'Welcome to the game!',
-    help: 'This is a help message',
-    left: 'looking left',
-    right: 'looking right',
-    ahead: 'looking right in front of you',
-    behind: 'looking right behind of you'
+    help: 'This is a help message'
   }
 }));
 

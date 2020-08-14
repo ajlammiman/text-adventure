@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { content, GameContent } from './content';
+import { content, location, Location, GameContent } from './content';
 
 export const Game = () => {
   const [displayContent, setDisplayContent] = useState(content.welcome);
@@ -8,29 +8,36 @@ export const Game = () => {
     <>
       <div>{displayContent}</div>
       <button onClick={() => setDisplayContent(content.help)}>help</button>
-      <Looking content={content} setDisplayContent={setDisplayContent} />
+      <Looking location={location} setDisplayContent={setDisplayContent} />
       <Moving content={content} setDisplayContent={setDisplayContent} />
     </>
   );
 };
 
-interface Actions {
-  content: GameContent;
+const Looking = ({
+  location,
+  setDisplayContent
+}: {
+  location: Location;
   setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Looking = ({ content, setDisplayContent }: Actions) => {
+}) => {
   return (
     <>
-      <button onClick={() => setDisplayContent(content.left)}>Look Left</button>
-      <button onClick={() => setDisplayContent(content.right)}>Look Right</button>
-      <button onClick={() => setDisplayContent(content.ahead)}>Look Ahead</button>
-      <button onClick={() => setDisplayContent(content.behind)}>Look Behind</button>
+      <button onClick={() => setDisplayContent(location.surroundings.left)}>Look Left</button>
+      <button onClick={() => setDisplayContent(location.surroundings.right)}>Look Right</button>
+      <button onClick={() => setDisplayContent(location.surroundings.front)}>Look Ahead</button>
+      <button onClick={() => setDisplayContent(location.surroundings.behind)}>Look Behind</button>
     </>
   );
 };
 
-const Moving = ({ content, setDisplayContent }: Actions) => {
+const Moving = ({
+  content,
+  setDisplayContent
+}: {
+  content: GameContent;
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   return (
     <>
       <button onClick={() => setDisplayContent(content.forwards)}>Move Forward</button>

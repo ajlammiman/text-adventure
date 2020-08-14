@@ -6,33 +6,42 @@ import { clickButton, checkForText } from './test.helper.actions.js';
 
 jest.mock('../content', () => ({
   content: {
-    left: 'looking left',
-    right: 'looking right',
-    ahead: 'looking right in front of you',
-    behind: 'looking right behind of you'
+    welcome: 'Hello!',
+    help: 'help'
+  },
+
+  location: {
+    name: 'home',
+    description: 'is where the heart is',
+    surroundings: {
+      left: 'left location',
+      right: 'right location',
+      behind: 'behind you!',
+      front: 'to the front'
+    }
   }
 }));
 
 test('player can look left', () => {
   render(<Game />);
   clickButton(/look left/i);
-  checkForText('looking left');
+  checkForText('left location');
 });
 
 test('player can look right', () => {
   render(<Game />);
   clickButton(/look right/i);
-  checkForText('looking right');
+  checkForText('right location');
 });
 
 test('player can look ahead', () => {
   render(<Game />);
   clickButton(/look ahead/i);
-  checkForText('looking right in front of you');
+  checkForText('to the front');
 });
 
 test('player can look behind', () => {
   render(<Game />);
   clickButton(/look behind/i);
-  checkForText('looking right behind of you');
+  checkForText('behind you!');
 });
