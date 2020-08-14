@@ -8,6 +8,17 @@ jest.mock('../content', () => ({
   content: {
     welcome: 'Welcome to the game!',
     help: 'This is a help message'
+  },
+
+  location: {
+    name: 'home',
+    description: 'Welcome to the game!',
+    surroundings: {
+      left: 'left location',
+      right: 'right location',
+      behind: 'behind you!',
+      front: 'to the front'
+    }
   }
 }));
 

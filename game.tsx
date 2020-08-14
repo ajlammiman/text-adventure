@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { content, location, Location, GameContent } from './content';
 
 export const Game = () => {
-  const [displayContent, setDisplayContent] = useState(content.welcome);
+  const [displayContent, setDisplayContent] = useState(location.description);
 
   return (
     <>
