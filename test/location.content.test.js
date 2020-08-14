@@ -11,7 +11,7 @@ test('a location has a description', () => {
 });
 
 test('a location knows what is on its left', () => {
-  expect(location.surroundings.left).toBe(locationContent.location.left);
+  expect(location.surroundings.left).toBe(locationContent.location.surroundings.left);
 });
 
 test('a location knows what is on its right', () => {

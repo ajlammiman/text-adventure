@@ -30,7 +30,6 @@ export const content: GameContent = {
 export interface Location {
   name: string;
   description: string;
-  left: string;
   right: string;
   behind: string;
   front: string;
@@ -44,9 +43,8 @@ interface Surroundings {
 export const location: Location = {
   name: locationSource.location.name,
   description: locationSource.location.description,
-  left: locationSource.location.left,
   right: locationSource.location.right,
   behind: locationSource.location.behind,
   front: locationSource.location.front,
-  surroundings: { left: locationSource.location.left }
+  surroundings: { left: locationSource.location.surroundings.left }
 };
