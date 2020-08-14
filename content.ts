@@ -30,9 +30,17 @@ export const content: GameContent = {
 export interface Location {
   name: string;
   description: string;
+  left: string;
+  right: string;
+  behind: string;
+  front: string;
 }
 
 export const location: Location = {
   name: locationSource.location.name,
-  description: locationSource.location.description
+  description: locationSource.location.description,
+  left: locationSource.location.left,
+  right: locationSource.location.right,
+  behind: locationSource.location.behind,
+  front: locationSource.location.front
 };

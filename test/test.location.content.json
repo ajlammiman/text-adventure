@@ -1,6 +1,10 @@
 {
     "location": {
         "name": "home",
-        "description" : "is where the heart is"
+        "description" : "is where the heart is",
+        "left": "location 1",
+        "right": "location 2",
+        "behind": "location 3",
+        "front": "location 4"
     }
 }

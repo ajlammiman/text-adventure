@@ -2,13 +2,26 @@ import { location } from '../content';
 
 const locationContent = require(`./test.location.content.json`);
 
-const description = locationContent.location.description;
-const name = locationContent.location.name;
-
-test('location has a name', () => {
-  expect(location.name).toBe(name);
+test('a location has a name', () => {
+  expect(location.name).toBe(locationContent.location.name);
 });
 
-test('location has a description', () => {
-  expect(location.description).toBe(description);
+test('a location has a description', () => {
+  expect(location.description).toBe(locationContent.location.description);
+});
+
+test('a location knows what is on its left', () => {
+  expect(location.left).toBe(locationContent.location.left);
+});
+
+test('a location knows what is on its right', () => {
+  expect(location.right).toBe(locationContent.location.right);
+});
+
+test('a location knows what is behind it', () => {
+  expect(location.behind).toBe(locationContent.location.behind);
+});
+
+test('a location knows what is in front of it', () => {
+  expect(location.front).toBe(locationContent.location.front);
 });
