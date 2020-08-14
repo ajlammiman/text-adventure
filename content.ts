@@ -1,4 +1,5 @@
 const contentSource = require(`./content/content.json`);
+const locationSource = require(`./test/test.location.content.json`);
 
 export interface GameContent {
   welcome: string;
@@ -24,4 +25,12 @@ export const content: GameContent = {
   backwards: contentSource.backwards,
   movingLeft: contentSource.movingLeft,
   movingRight: contentSource.movingRight
+};
+
+export interface Location {
+  description: string;
+}
+
+export const location: Location = {
+  description: locationSource.location.description
 };
