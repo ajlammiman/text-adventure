@@ -20,7 +20,7 @@ export const content: GameContent = {
   right: contentSource.right,
   ahead: contentSource.ahead,
   behind: contentSource.behind,
-  forwards: contentSource.location.description,
+  forwards: contentSource.forwards,
   backwards: contentSource.backwards,
   movingLeft: contentSource.movingLeft,
   movingRight: contentSource.movingRight
