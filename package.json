@@ -34,11 +34,12 @@
   "scripts": {
     "static:build": "parcel build index.js -d ../public --out-file bundle.js --public-url \"/public\"",
     "watch:test": "jest --watchAll",
-    "lint:check": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx",
-    "lint:fix": "eslint --fix **/*.js --fix **/*.tsx --fix **/*.ts"
+    "lint:check": "eslint . --ext .js --ext .jsx --ext .tsx",
+    "lint:fix": "eslint --fix **/*.js --fix **/*.tsx"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.10.4",
@@ -47,7 +48,12 @@
     "@testing-library/user-event": "^12.0.12",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
