@@ -19,10 +19,14 @@ interface LookDirection {
   views: Views;
 }
 
+function Look(direction: Direction, views: Views) {
+  return views.find((v) => v.direction === direction)?.description ?? '';
+}
+
 type LookDirectionProps = LookDirection & ButtonProps & DefaultButtonProps;
 
 function LookDirection({ direction, setDisplayContent, views }: LookDirectionProps) {
-  return <button onClick={() => Look(setDisplayContent, direction, views)}>{direction}</button>;
+  return <button onClick={() => setDisplayContent(Look(direction, views))}>{direction}</button>;
 }
 
 export const Looking = ({
@@ -39,7 +43,3 @@ export const Looking = ({
     <LookDirection direction="Behind" setDisplayContent={setDisplayContent} views={views} />
   </>
 );
-
-function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>, direction: Direction, views: Views) {
-  setDisplayContent(views.find((v) => v.direction === direction)?.description ?? '');
-}
