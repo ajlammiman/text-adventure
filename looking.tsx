@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Direction = 'Left' | 'Right' | 'Forward' | 'Behind';
+type Direction = 'Left' | 'Right' | 'Ahead' | 'Behind';
 
 type View = {
   direction: Direction;
@@ -19,7 +19,7 @@ export const Looking = ({
   <>
     <button onClick={() => Look(setDisplayContent, 'Left', views)}>Left</button>
     <button onClick={() => Look(setDisplayContent, 'Right', views)}>Right</button>
-    <button onClick={() => Look(setDisplayContent, 'Forward', views)}>Forward</button>
+    <button onClick={() => Look(setDisplayContent, 'Ahead', views)}>Ahead</button>
     <button onClick={() => Look(setDisplayContent, 'Behind', views)}>Behind</button>
   </>
 );

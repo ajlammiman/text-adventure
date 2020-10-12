@@ -6,7 +6,7 @@ import { Looking } from '../looking.tsx';
 const views = [
   { direction: 'Left', description: 'A description of what I can see on my left.' },
   { direction: 'Right', description: 'A description of what I can see on my right.' },
-  { direction: 'Forward', description: 'A description of what I can see in front of me.' },
+  { direction: 'Ahead', description: 'A description of what I can see in front of me.' },
   { direction: 'Behind', description: 'A description of what I can see behind me.' }
 ];
 
@@ -33,9 +33,9 @@ describe('player can look', () => {
     expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Right').description);
   });
 
-  test('forward', async () => {
-    fireEvent.click(await screen.findByText('Forward'));
-    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Forward').description);
+  test('ahead', async () => {
+    fireEvent.click(await screen.findByText('Ahead'));
+    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Ahead').description);
   });
 
   test('behind', async () => {
