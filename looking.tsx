@@ -9,7 +9,7 @@ type View = {
 
 type Views = View[];
 
-type ButtonProps = JSX.IntrinsicElements['button'];
+type ButtonProps = Omit<JSX.IntrinsicElements['button'], 'onClick'>;
 
 interface LookDirection {
   direction: Direction;
