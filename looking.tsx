@@ -2,6 +2,10 @@ import React from 'react';
 
 export const Looking = ({ setDisplayContent }: { setDisplayContent: React.Dispatch<React.SetStateAction<string>> }) => (
   <>
-    <button onClick={() => setDisplayContent('I am looking to the left')}>Left</button>
+    <button onClick={() => Look(setDisplayContent)}>Left</button>
   </>
 );
+
+function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>) {
+    setDisplayContent('I am looking to the left');
+}
