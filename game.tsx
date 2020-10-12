@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from './generic_components/button';
 
 const content = {
   start: 'Welcome to the game!',
@@ -11,7 +12,7 @@ export const Game = () => {
   return (
     <>
       <div>{displayContent}</div>
-      <button onClick={() => setDisplayContent(content.help)}>help</button>
+      <Button name="help" content={content.help} updateState={setDisplayContent} />
     </>
   );
 };
