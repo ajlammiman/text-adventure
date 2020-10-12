@@ -9,11 +9,11 @@ type View = {
 
 type Views = View[];
 
-type ButtonProps = {
+interface ButtonProps {
   direction: Direction;
   setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
   views: Views;
-};
+}
 
 function Button({ direction, setDisplayContent, views }: ButtonProps) {
   return <button onClick={() => Look(setDisplayContent, direction, views)}>{direction}</button>;
