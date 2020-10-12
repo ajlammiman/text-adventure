@@ -24,8 +24,7 @@ describe('player can look', () => {
   });
 
   test('left', async () => {
-    fireEvent.click(await screen.findByText('Left'));
-    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Left').description);
+    await CanISee('Left');
   });
 
   test('right', async () => {
@@ -42,4 +41,9 @@ describe('player can look', () => {
     fireEvent.click(await screen.findByText('Behind'));
     expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Behind').description);
   });
+
+  async function CanISee(direction) {
+    fireEvent.click(await screen.findByText(direction));
+    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === direction).description);
+  }
 });
