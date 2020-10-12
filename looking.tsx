@@ -9,6 +9,16 @@ type View = {
 
 type Views = View[];
 
+type ButtonProps = {
+  direction: Direction;
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+  views: Views;
+};
+
+function Button({ direction, setDisplayContent, views }: ButtonProps) {
+  return <button onClick={() => Look(setDisplayContent, direction, views)}>{direction}</button>;
+}
+
 export const Looking = ({
   setDisplayContent,
   views
@@ -17,10 +27,10 @@ export const Looking = ({
   views: Views;
 }) => (
   <>
-    <button onClick={() => Look(setDisplayContent, 'Left', views)}>Left</button>
-    <button onClick={() => Look(setDisplayContent, 'Right', views)}>Right</button>
-    <button onClick={() => Look(setDisplayContent, 'Ahead', views)}>Ahead</button>
-    <button onClick={() => Look(setDisplayContent, 'Behind', views)}>Behind</button>
+    <Button direction="Left" setDisplayContent={setDisplayContent} views={views} />
+    <Button direction="Right" setDisplayContent={setDisplayContent} views={views} />
+    <Button direction="Ahead" setDisplayContent={setDisplayContent} views={views} />
+    <Button direction="Behind" setDisplayContent={setDisplayContent} views={views} />
   </>
 );
 
