@@ -23,9 +23,7 @@ describe('player can look', () => {
     render(<Looking setDisplayContent={setDisplayContent} views={views} />);
   });
 
-  test('left', async () => {
-    await CanISee('Left');
-  });
+  test('left', async () => await CanISee('Left'));
 
   test('right', async () => {
     fireEvent.click(await screen.findByText('Right'));
