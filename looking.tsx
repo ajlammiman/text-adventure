@@ -7,5 +7,5 @@ export const Looking = ({ setDisplayContent }: { setDisplayContent: React.Dispat
 );
 
 function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>) {
-    setDisplayContent('I am looking to the left');
+  setDisplayContent('I am looking to the left');
 }
