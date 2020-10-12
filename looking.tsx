@@ -9,13 +9,17 @@ type View = {
 
 type Views = View[];
 
-interface ButtonProps {
+type ButtonProps = JSX.IntrinsicElements['button'];
+
+interface LookDirection {
   direction: Direction;
   setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
   views: Views;
 }
 
-function ChooseDirection({ direction, setDisplayContent, views }: ButtonProps) {
+type LookDirectionProps = LookDirection & ButtonProps;
+
+function LookDirection({ direction, setDisplayContent, views }: LookDirectionProps) {
   return <button onClick={() => Look(setDisplayContent, direction, views)}>{direction}</button>;
 }
 
@@ -27,10 +31,10 @@ export const Looking = ({
   views: Views;
 }) => (
   <>
-    <ChooseDirection direction="Left" setDisplayContent={setDisplayContent} views={views} />
-    <ChooseDirection direction="Right" setDisplayContent={setDisplayContent} views={views} />
-    <ChooseDirection direction="Ahead" setDisplayContent={setDisplayContent} views={views} />
-    <ChooseDirection direction="Behind" setDisplayContent={setDisplayContent} views={views} />
+    <LookDirection direction="Left" setDisplayContent={setDisplayContent} views={views} />
+    <LookDirection direction="Right" setDisplayContent={setDisplayContent} views={views} />
+    <LookDirection direction="Ahead" setDisplayContent={setDisplayContent} views={views} />
+    <LookDirection direction="Behind" setDisplayContent={setDisplayContent} views={views} />
   </>
 );
 
