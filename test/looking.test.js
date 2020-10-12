@@ -6,7 +6,8 @@ import { Looking } from '../looking.tsx';
 const views = [
   { direction: 'Left', description: 'A description of what I can see on my left.' },
   { direction: 'Right', description: 'A description of what I can see on my right.' },
-  { direction: 'Forward', description: 'A description of what I can see in front of me.' }
+  { direction: 'Forward', description: 'A description of what I can see in front of me.' },
+  { direction: 'Behind', description: 'A description of what I can see behind me.' }
 ];
 
 jest.mock('react', () => ({
@@ -35,5 +36,10 @@ describe('player can look', () => {
   test('forward', async () => {
     fireEvent.click(await screen.findByText('Forward'));
     expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Forward').description);
+  });
+
+  test('behind', async () => {
+    fireEvent.click(await screen.findByText('Behind'));
+    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === 'Behind').description);
   });
 });
