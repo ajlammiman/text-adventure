@@ -2,15 +2,26 @@ import React from 'react';
 
 type Direction = 'Left' | 'Right';
 
-export const Looking = ({ setDisplayContent }: { setDisplayContent: React.Dispatch<React.SetStateAction<string>> }) => (
+type View = {
+  direction: Direction;
+  description: string;
+};
+
+type Views = View[];
+
+export const Looking = ({
+  setDisplayContent,
+  views
+}: {
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+  views: Views;
+}) => (
   <>
-    <button onClick={() => Look(setDisplayContent, 'Left')}>Left</button>
-    <button onClick={() => Look(setDisplayContent, 'Right')}>Right</button>
+    <button onClick={() => Look(setDisplayContent, 'Left', views)}>Left</button>
+    <button onClick={() => Look(setDisplayContent, 'Right', views)}>Right</button>
   </>
 );
 
-function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>, direction: Direction) {
-  if (direction === 'Left') setDisplayContent('A description of what I can see on my left');
-
-  if (direction === 'Right') setDisplayContent('A description of what I can see on my right');
+function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>, direction: Direction, views: Views) {
+  setDisplayContent(views.find((v) => v.direction === direction)?.description ?? '');
 }
