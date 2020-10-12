@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './generic_components/button';
 
 type Direction = 'Left' | 'Right' | 'Ahead' | 'Behind';
 
@@ -8,23 +9,6 @@ type View = {
 };
 
 type Views = View[];
-
-type DefaultButtonProps = Omit<JSX.IntrinsicElements['button'], 'onClick'>;
-interface ExtendedButtonProps {
-  name: string;
-  content: string;
-  updateState: React.Dispatch<React.SetStateAction<string>>;
-}
-
-type ButtonProps = ExtendedButtonProps & DefaultButtonProps;
-
-function Button({ name, content, updateState, ...allButtonProps }: ButtonProps) {
-  return (
-    <button onClick={() => updateState(content)} {...allButtonProps}>
-      {name}
-    </button>
-  );
-}
 
 interface LookDirection {
   direction: Direction;
