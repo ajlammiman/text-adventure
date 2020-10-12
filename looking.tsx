@@ -15,7 +15,7 @@ interface ButtonProps {
   views: Views;
 }
 
-function Button({ direction, setDisplayContent, views }: ButtonProps) {
+function ChooseDirection({ direction, setDisplayContent, views }: ButtonProps) {
   return <button onClick={() => Look(setDisplayContent, direction, views)}>{direction}</button>;
 }
 
@@ -27,10 +27,10 @@ export const Looking = ({
   views: Views;
 }) => (
   <>
-    <Button direction="Left" setDisplayContent={setDisplayContent} views={views} />
-    <Button direction="Right" setDisplayContent={setDisplayContent} views={views} />
-    <Button direction="Ahead" setDisplayContent={setDisplayContent} views={views} />
-    <Button direction="Behind" setDisplayContent={setDisplayContent} views={views} />
+    <ChooseDirection direction="Left" setDisplayContent={setDisplayContent} views={views} />
+    <ChooseDirection direction="Right" setDisplayContent={setDisplayContent} views={views} />
+    <ChooseDirection direction="Ahead" setDisplayContent={setDisplayContent} views={views} />
+    <ChooseDirection direction="Behind" setDisplayContent={setDisplayContent} views={views} />
   </>
 );
 
