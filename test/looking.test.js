@@ -18,12 +18,12 @@ describe('player can look', () => {
   test('left', async () => {
     render(<Looking setDisplayContent={setDisplayContent} />);
     fireEvent.click(await screen.findByText('Left'));
-    expect(setDisplayContent).toHaveBeenCalledWith('I am looking to the left');
+    expect(setDisplayContent).toHaveBeenCalledWith('A description of what I can see on my left');
   });
 
   test('right', async () => {
     render(<Looking setDisplayContent={setDisplayContent} />);
     fireEvent.click(await screen.findByText('Right'));
-    expect(setDisplayContent).toHaveBeenCalledWith('I am looking to the right');
+    expect(setDisplayContent).toHaveBeenCalledWith('A description of what I can see on my right');
   });
 });

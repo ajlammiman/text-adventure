@@ -15,7 +15,7 @@ export const Looking = ({ setDisplayContent }: { setDisplayContent: React.Dispat
 );
 
 function Look(setDisplayContent: React.Dispatch<React.SetStateAction<string>>, direction: Direction) {
-  if (direction === Direction.Left) setDisplayContent('I am looking to the left');
+  if (direction === Direction.Left) setDisplayContent('A description of what I can see on my left');
 
-  if (direction === Direction.Right) setDisplayContent('I am looking to the right');
+  if (direction === Direction.Right) setDisplayContent('A description of what I can see on my right');
 }
