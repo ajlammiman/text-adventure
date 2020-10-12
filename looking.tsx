@@ -10,12 +10,25 @@ type View = {
 type Views = View[];
 
 type DefaultButtonProps = Omit<JSX.IntrinsicElements['button'], 'onClick'>;
-interface ButtonProps {
-  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+interface ExtendedButtonProps {
+  name: string;
+  content: string;
+  updateState: React.Dispatch<React.SetStateAction<string>>;
+}
+
+type ButtonProps = ExtendedButtonProps & DefaultButtonProps;
+
+function Button({ name, content, updateState, ...allButtonProps }: ButtonProps) {
+  return (
+    <button onClick={() => updateState(content)} {...allButtonProps}>
+      {name}
+    </button>
+  );
 }
 
 interface LookDirection {
   direction: Direction;
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
   views: Views;
 }
 
@@ -23,10 +36,10 @@ function Look(direction: Direction, views: Views) {
   return views.find((v) => v.direction === direction)?.description ?? '';
 }
 
-type LookDirectionProps = LookDirection & ButtonProps & DefaultButtonProps;
+type LookDirectionProps = LookDirection;
 
 function LookDirection({ direction, setDisplayContent, views }: LookDirectionProps) {
-  return <button onClick={() => setDisplayContent(Look(direction, views))}>{direction}</button>;
+  return <Button name={direction} content={Look(direction, views)} updateState={setDisplayContent} />;
 }
 
 export const Looking = ({
