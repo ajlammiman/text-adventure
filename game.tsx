@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Button } from './generic_components/button';
 import { Looking } from './looking';
-import { content as gameContent } from './content';
+import { content } from './content';
 
 export const Game = () => {
-  const [displayContent, setDisplayContent] = useState(gameContent().start);
+  const gameContent = content();
+  const [displayContent, setDisplayContent] = useState(gameContent.start);
 
   return (
     <>
       <div>{displayContent}</div>
-      <Button name="help" content={gameContent().help} updateState={setDisplayContent} />
-      <Looking setDisplayContent={setDisplayContent} views={gameContent().Views} />
+      <Button name="help" content={gameContent.help} updateState={setDisplayContent} />
+      <Looking setDisplayContent={setDisplayContent} views={gameContent.Views} />
     </>
   );
 };
