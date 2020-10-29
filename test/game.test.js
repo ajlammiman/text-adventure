@@ -4,15 +4,17 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Game } from '../game.tsx';
 import { content } from '../content.ts';
 
+const mockStart = 'Welcome to the game!';
 const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
+
 jest.mock('../content');
 content.mockImplementation(() => {
-  return { Views: mockViews };
+  return { start: mockStart, Views: mockViews };
 });
 
 test('game starts at default location', () => {
   render(<Game />);
-  expect(screen.getByText(`Welcome to the game!`)).toBeInTheDocument();
+  expect(screen.getByText(mockStart)).toBeInTheDocument();
 });
 
 test('player can ask for help', async () => {
