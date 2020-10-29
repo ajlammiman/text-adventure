@@ -5,7 +5,7 @@ import { content } from './content';
 
 export const Game = () => {
   const gameContent = content();
-  const [displayContent, setDisplayContent] = useState(gameContent.start);
+  const [displayContent, setDisplayContent] = useState(gameContent.location.description);
 
   return (
     <>
