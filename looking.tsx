@@ -8,7 +8,7 @@ type View = {
   description: string;
 };
 
-type Views = View[];
+export type Views = View[];
 
 interface LookDirection {
   direction: Direction;
