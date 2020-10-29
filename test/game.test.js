@@ -5,11 +5,12 @@ import { Game } from '../game.tsx';
 import { content } from '../content.ts';
 
 const mockStart = 'Welcome to the game!';
+const mockHelp = 'This is a help message';
 const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
 
 jest.mock('../content');
 content.mockImplementation(() => {
-  return { start: mockStart, Views: mockViews };
+  return { start: mockStart, help: mockHelp, Views: mockViews };
 });
 
 test('game starts at default location', () => {
@@ -20,7 +21,7 @@ test('game starts at default location', () => {
 test('player can ask for help', async () => {
   render(<Game />);
   fireEvent.click(screen.getByText(/help/i));
-  expect(await screen.findByText('This is a help message')).toBeInTheDocument();
+  expect(await screen.findByText(mockHelp)).toBeInTheDocument();
 });
 
 test('player can look in a direction', async () => {
