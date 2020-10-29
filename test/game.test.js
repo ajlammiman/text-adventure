@@ -10,19 +10,18 @@ const mockHelp = 'This is a help message';
 const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
 
 jest.mock('../content');
-const getCurrentLocation = jest.fn().mockReturnValue({ description: mockStart });
+
 content.mockImplementation(() => {
   return {
     start: mockStartLocation,
     help: mockHelp,
     views: mockViews,
-    location: getCurrentLocation(mockStartLocation)
+    location: { description: mockStart }
   };
 });
 
 test('game starts at default location', () => {
   render(<Game />);
-  expect(getCurrentLocation).toBeCalledWith(mockStartLocation);
   expect(screen.getByText(mockStart)).toBeInTheDocument();
 });
 

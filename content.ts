@@ -11,13 +11,9 @@ type Location = {
 };
 
 export const content = () => {
-  function getCurrentLocation(location: string): Location {
-    return location ? { description: 'Welcome to the game!' } : { description: '' };
-  }
-
   return {
     help: 'This is a help message',
     views: [],
-    location: getCurrentLocation('694450893FFF4562A227C2EDA5DA7696')
+    location: { description: 'Welcome to the game!' }
   } as Contents;
 };
