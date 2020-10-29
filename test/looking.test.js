@@ -14,22 +14,21 @@ jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useState: jest.fn()
 }));
+const setDisplayContent = jest.fn();
+
+beforeEach(() => {
+  useStateMock.mockImplementation((init) => [init, setDisplayContent]);
+  render(<Looking setDisplayContent={setDisplayContent} views={views} />);
+});
 
 describe('player can look', () => {
-  const setDisplayContent = jest.fn();
-
-  beforeEach(() => {
-    useStateMock.mockImplementation((init) => [init, setDisplayContent]);
-    render(<Looking setDisplayContent={setDisplayContent} views={views} />);
-  });
-
-  test('left', async () => await CanISee('Left'));
-  test('right', async () => await CanISee('Right'));
-  test('ahead', async () => await CanISee('Ahead'));
-  test('behind', async () => await CanISee('Behind'));
-
-  async function CanISee(direction) {
-    fireEvent.click(await screen.findByText(direction));
-    expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === direction).description);
-  }
+  test('Look left', async () => await CanISee('Left'));
+  test('Look right', async () => await CanISee('Right'));
+  test('Look ahead', async () => await CanISee('Ahead'));
+  test('Look behind', async () => await CanISee('Behind'));
 });
+
+async function CanISee(direction) {
+  fireEvent.click(await screen.findByText(direction));
+  expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === direction).description);
+}
