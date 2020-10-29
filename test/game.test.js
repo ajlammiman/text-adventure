@@ -4,9 +4,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Game } from '../game.tsx';
 import { content } from '../content.ts';
 
+const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
 jest.mock('../content');
 content.mockImplementation(() => {
-  return { Views: [{ direction: 'Left', description: 'I can see something in the distance' }] };
+  return { Views: mockViews };
 });
 
 test('game starts at default location', () => {
@@ -23,5 +24,5 @@ test('player can ask for help', async () => {
 test('player can look in a direction', async () => {
   render(<Game />);
   fireEvent.click(screen.getByText(/Left/i));
-  expect(await screen.findByText('I can see something in the distance')).toBeInTheDocument();
+  expect(await screen.findByText(mockViews.find((v) => v.direction === 'Left').description)).toBeInTheDocument();
 });
