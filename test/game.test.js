@@ -10,7 +10,7 @@ const mockViews = [{ direction: 'Left', description: 'I can see something in the
 
 jest.mock('../content');
 content.mockImplementation(() => {
-  return { start: mockStart, help: mockHelp, views: mockViews, location: { description: mockStart } };
+  return { help: mockHelp, views: mockViews, location: { description: mockStart } };
 });
 
 test('game starts at default location', () => {
