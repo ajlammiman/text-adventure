@@ -4,17 +4,25 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Game } from '../game.tsx';
 import { content } from '../content.ts';
 
+const mockStartLocation = '694450893FFF4562A227C2EDA5DA7696';
 const mockStart = 'Welcome to the game!';
 const mockHelp = 'This is a help message';
 const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
 
 jest.mock('../content');
+const getCurrentLocation = jest.fn().mockReturnValue({ description: mockStart });
 content.mockImplementation(() => {
-  return { help: mockHelp, views: mockViews, location: { description: mockStart } };
+  return {
+    start: mockStartLocation,
+    help: mockHelp,
+    views: mockViews,
+    location: getCurrentLocation(mockStartLocation)
+  };
 });
 
 test('game starts at default location', () => {
   render(<Game />);
+  expect(getCurrentLocation).toBeCalledWith(mockStartLocation);
   expect(screen.getByText(mockStart)).toBeInTheDocument();
 });
 

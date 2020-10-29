@@ -1,7 +1,6 @@
 import { Views } from './looking';
 
 interface Contents {
-  start: string;
   help: string;
   views: Views;
   location: Location;
@@ -12,10 +11,13 @@ type Location = {
 };
 
 export const content = () => {
+  function getCurrentLocation(location: string): Location {
+    return location ? { description: 'Welcome to the game!' } : { description: '' };
+  }
+
   return {
-    start: 'Welcome to the game!',
     help: 'This is a help message',
     views: [],
-    location: { description: 'Welcome to the game!' }
+    location: getCurrentLocation('694450893FFF4562A227C2EDA5DA7696')
   } as Contents;
 };
