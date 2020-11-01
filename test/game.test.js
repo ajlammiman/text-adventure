@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Game } from '../game.tsx';
-import { Location } from '../location.ts';
+import { Location, Help } from '../location.ts';
 
 const mockStartLocation = '694450893FFF4562A227C2EDA5DA7696';
 const mockStart = 'Welcome to the game!';
@@ -14,9 +14,12 @@ jest.mock('../location');
 Location.mockImplementation(() => {
   return {
     start: mockStartLocation,
-    help: mockHelp,
     location: { description: mockStart, views: mockViews }
   };
+});
+
+Help.mockImplementation(() => {
+  return mockHelp;
 });
 
 test('game starts at default location', () => {

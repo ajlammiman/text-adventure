@@ -1,7 +1,6 @@
 import { Views } from './looking';
 
 interface Contents {
-  help: string;
   location: Location;
 }
 
@@ -12,9 +11,8 @@ type Location = {
 
 export const Location = () => {
   return {
-    help: 'This is a help message',
     location: { description: 'Welcome to the game!', views: [] }
   } as Contents;
 };
 
-export const help = 'This is a help message';
+export const Help = () => 'This is a help message';
