@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from './generic_components/button';
 import { Looking } from './looking';
-import { Location, Help } from './location';
+import { Location } from './location';
+import { Help } from './help';
 
 export const Game = () => {
   const location = Location();
