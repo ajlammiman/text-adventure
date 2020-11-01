@@ -6,13 +6,13 @@ import { Help } from './help';
 
 export const Game = () => {
   const location = Location();
-  const [displayContent, setDisplayContent] = useState(location.location.description);
+  const [displayContent, setDisplayContent] = useState(location.description);
 
   return (
     <>
       <div>{displayContent}</div>
       <Button name="help" content={Help()} updateState={setDisplayContent} />
-      <Looking setDisplayContent={setDisplayContent} views={location.location.views} />
+      <Looking setDisplayContent={setDisplayContent} views={location.views} />
     </>
   );
 };

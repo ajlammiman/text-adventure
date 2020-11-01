@@ -5,7 +5,6 @@ import { Game } from '../game.tsx';
 import { Location } from '../location.ts';
 import { Help } from '../help.ts';
 
-const mockStartLocation = '694450893FFF4562A227C2EDA5DA7696';
 const mockStart = 'Welcome to the game!';
 const mockHelp = 'This is a help message';
 const mockViews = [{ direction: 'Left', description: 'I can see something in the distance' }];
@@ -14,10 +13,7 @@ jest.mock('../location');
 jest.mock('../help');
 
 Location.mockImplementation(() => {
-  return {
-    start: mockStartLocation,
-    location: { description: mockStart, views: mockViews }
-  };
+  return { description: mockStart, views: mockViews };
 });
 
 Help.mockImplementation(() => {
