@@ -10,7 +10,7 @@ type Location = {
   description: string;
 };
 
-export const content = () => {
+export const Location = () => {
   return {
     help: 'This is a help message',
     views: [],

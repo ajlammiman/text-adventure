@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Game } from '../game.tsx';
-import { content } from '../content.ts';
+import { Location } from '../content.ts';
 
 const mockStartLocation = '694450893FFF4562A227C2EDA5DA7696';
 const mockStart = 'Welcome to the game!';
@@ -11,7 +11,7 @@ const mockViews = [{ direction: 'Left', description: 'I can see something in the
 
 jest.mock('../content');
 
-content.mockImplementation(() => {
+Location.mockImplementation(() => {
   return {
     start: mockStartLocation,
     help: mockHelp,

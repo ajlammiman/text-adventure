@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from './generic_components/button';
 import { Looking } from './looking';
-import { content } from './content';
+import { Location } from './content';
 
 export const Game = () => {
-  const gameContent = content();
+  const gameContent = Location();
   const [displayContent, setDisplayContent] = useState(gameContent.location.description);
 
   return (
