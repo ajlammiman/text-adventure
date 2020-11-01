@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './generic_components/button';
 import { Looking } from './looking';
-import { Location } from './location';
+import { Location, help } from './location';
 
 export const Game = () => {
   const location = Location();
@@ -10,7 +10,7 @@ export const Game = () => {
   return (
     <>
       <div>{displayContent}</div>
-      <Button name="help" content={location.help} updateState={setDisplayContent} />
+      <Button name="help" content={help} updateState={setDisplayContent} />
       <Looking setDisplayContent={setDisplayContent} views={location.location.views} />
     </>
   );

@@ -16,3 +16,5 @@ export const Location = () => {
     location: { description: 'Welcome to the game!', views: [] }
   } as Contents;
 };
+
+export const help = 'This is a help message';
