@@ -11,7 +11,7 @@ export const Game = () => {
     <>
       <div>{displayContent}</div>
       <Button name="help" content={location.help} updateState={setDisplayContent} />
-      <Looking setDisplayContent={setDisplayContent} views={location.views} />
+      <Looking setDisplayContent={setDisplayContent} views={location.location.views} />
     </>
   );
 };

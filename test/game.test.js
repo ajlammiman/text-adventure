@@ -16,7 +16,7 @@ Location.mockImplementation(() => {
     start: mockStartLocation,
     help: mockHelp,
     views: mockViews,
-    location: { description: mockStart }
+    location: { description: mockStart, views: mockViews }
   };
 });
 

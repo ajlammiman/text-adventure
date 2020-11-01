@@ -8,12 +8,13 @@ interface Contents {
 
 type Location = {
   description: string;
+  views: Views;
 };
 
 export const Location = () => {
   return {
     help: 'This is a help message',
     views: [],
-    location: { description: 'Welcome to the game!' }
+    location: { description: 'Welcome to the game!', views: [] }
   } as Contents;
 };
