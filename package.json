@@ -34,7 +34,8 @@
   "scripts": {
     "static:checktypes": "tsc --noemit",
     "static:build": "yarn static:checktypes && parcel build index.js -d ../public --out-file bundle.js --public-url \"/public\"",
-    "static:push": "yarn static:build | git add . | git commit -m _ | git push",
+    "static:test": "yarn jest",
+    "static:push": "yarn static:build && yarn static:test && git add . | git commit -m _ | git push",
     "watch:test": "jest --watchAll",
     "lint:check": "yarn static:checktypes && eslint . --ext .js --ext .jsx --ext .tsx",
     "lint:fix": "eslint --fix **/*.js --fix **/*.tsx"

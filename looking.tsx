@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from './generic_components/button';
-
-type Direction = 'Left' | 'Right' | 'Ahead' | 'Behind';
+import { Direction } from './shared_types/direction';
 
 type View = {
   direction: Direction;
