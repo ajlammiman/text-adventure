@@ -9,30 +9,64 @@ type Location = {
 };
 type Locations = Location[];
 
-function locationLookup(location: Location) {
-  if (location.id === 1) return 'some place';
+type MoveProps = {
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+  locations: Locations;
+  locationLookup: LocationLookup;
+};
 
-  return 'no place';
+type MoveInADirection = {
+  direction: Direction;
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+  locations: Locations;
+  locationLookup: LocationLookup;
+};
+
+type MoveInADirectionProps = MoveInADirection;
+
+export interface LocationLookup {
+  (location: Location): string;
 }
 
-function Move(direction: Direction, locations: Locations) {
+function MoveInADirection({ direction, setDisplayContent, locations, locationLookup }: MoveInADirectionProps) {
+  return (
+    <Button name={direction} content={Move(direction, locations, locationLookup)} updateState={setDisplayContent} />
+  );
+}
+
+function Move(direction: Direction, locations: Locations, locationLookup: LocationLookup) {
   const location: Location = locations.find((l) => l.direction === direction) ?? { direction: 'Ahead', id: 0 };
 
   return locationLookup(location);
 }
 
-export const Moving = ({
-  setDisplayContent,
-  locations,
-  direction
-}: {
-  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
-  locations: Locations;
-  direction: Direction;
-}) => {
+export const Moving = ({ setDisplayContent, locations, locationLookup }: MoveProps) => {
   return (
     <>
-      <Button name={direction} content={Move(direction, locations)} updateState={setDisplayContent} />
+      <MoveInADirection
+        direction="Ahead"
+        setDisplayContent={setDisplayContent}
+        locations={locations}
+        locationLookup={locationLookup}
+      />
+      <MoveInADirection
+        direction="Behind"
+        setDisplayContent={setDisplayContent}
+        locations={locations}
+        locationLookup={locationLookup}
+      />
+      <MoveInADirection
+        direction="Left"
+        setDisplayContent={setDisplayContent}
+        locations={locations}
+        locationLookup={locationLookup}
+      />
+      <MoveInADirection
+        direction="Right"
+        setDisplayContent={setDisplayContent}
+        locations={locations}
+        locationLookup={locationLookup}
+      />
     </>
   );
 };
