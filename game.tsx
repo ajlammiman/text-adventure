@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useGame } from './game';
 import { Button } from './generic_components/button';
 import { Looking } from './looking';
-import { Moving, LocationLookup } from './moving';
-import { Location } from './location';
+import { Moving } from './moving';
 import { Help } from './help';
-import { Direction } from './types/direction';
 
 export const Game = () => {
-  const location = Location();
-  const [displayContent, setDisplayContent] = useState(location.description);
-  const locationLookup: LocationLookup = function (location: { direction: Direction; id: number }) {
-    const locations = [{ id: 1, description: 'some place' }];
-    return locations.find((x) => x.id === location.id)?.description ?? '';
-  };
+  const game = useGame();
 
   return (
     <>
-      <div>{displayContent}</div>
-      <Button name="help" content={Help()} updateState={setDisplayContent} />
-      <Looking setDisplayContent={setDisplayContent} views={location.views} />
-      <Moving setDisplayContent={setDisplayContent} locations={location.locations} locationLookup={locationLookup} />
+      <div>{game.displayContent}</div>
+      <Button name="help" content={Help()} updateState={game.setDisplayContent} />
+      <Looking setDisplayContent={game.setDisplayContent} views={game.location.views} />
+      <Moving
+        setDisplayContent={game.setDisplayContent}
+        locations={game.location.locations}
+        locationLookup={game.locationLookup}
+      />
     </>
   );
 };

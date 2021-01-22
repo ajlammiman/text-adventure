@@ -1,35 +1,6 @@
 import React from 'react';
+import { MoveProps, MovingProps, FindLocation, MoveMe } from './moving.context';
 import { Button } from './generic_components/button';
-import { Location, Locations } from './types/location';
-import { Direction } from './types/direction';
-import { ActionButton } from './types/action';
-
-type MoveProps = {
-  locations: Locations;
-  locationLookup: LocationLookup;
-} & ActionButton;
-
-type MovingProps = {
-  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
-  locations: Locations;
-  locationLookup: LocationLookup;
-};
-
-export interface LocationLookup {
-  (location: Location): string;
-}
-
-interface FindLocation {
-  (direction: Direction, locations: Locations): Location;
-}
-
-const FindLocation: FindLocation = function (direction: Direction, locations: Locations) {
-  return locations.find((l) => l.direction === direction) ?? { direction: 'Ahead', id: 0 };
-};
-
-function MoveMe(location: Location, locationLookup: LocationLookup) {
-  return locationLookup(location);
-}
 
 function Move({ direction, setDisplayContent, locations, locationLookup }: MoveProps) {
   return (
