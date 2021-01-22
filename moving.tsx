@@ -9,6 +9,12 @@ type MoveProps = {
   locationLookup: LocationLookup;
 } & ActionButton;
 
+type MovingProps = {
+  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
+  locations: Locations;
+  locationLookup: LocationLookup;
+};
+
 export interface LocationLookup {
   (location: Location): string;
 }
@@ -28,14 +34,14 @@ function MoveMe(location: Location, locationLookup: LocationLookup) {
 function Move({ direction, setDisplayContent, locations, locationLookup }: MoveProps) {
   return (
     <Button
-      name={direction}
+      name={`Move ${direction}`}
       content={MoveMe(FindLocation(direction, locations), locationLookup)}
       updateState={setDisplayContent}
     />
   );
 }
 
-export const Moving = ({ setDisplayContent, locations, locationLookup }: MoveProps) => {
+export const Moving = ({ setDisplayContent, locations, locationLookup }: MovingProps) => {
   return (
     <>
       <Move

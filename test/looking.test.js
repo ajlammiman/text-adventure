@@ -29,6 +29,6 @@ describe('player can look', () => {
 });
 
 async function CanISee(direction) {
-  fireEvent.click(await screen.findByText(direction));
+  fireEvent.click(await screen.findByText(`Look ${direction}`));
   expect(setDisplayContent).toHaveBeenCalledWith(views.find((v) => v.direction === direction).description);
 }

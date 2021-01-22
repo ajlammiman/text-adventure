@@ -16,7 +16,7 @@ function Look(direction: Direction, views: Views) {
 type LookDirectionProps = LookDirection;
 
 function LookDirection({ direction, setDisplayContent, views }: LookDirectionProps) {
-  return <Button name={direction} content={Look(direction, views)} updateState={setDisplayContent} />;
+  return <Button name={`Look ${direction}`} content={Look(direction, views)} updateState={setDisplayContent} />;
 }
 
 export const Looking = ({

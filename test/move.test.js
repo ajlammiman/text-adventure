@@ -37,7 +37,7 @@ beforeEach(() => {
 });
 
 async function CanIMove(direction) {
-  fireEvent.click(await screen.findByText(direction));
+  fireEvent.click(await screen.findByText(`Move ${direction}`));
   const id = locationsToMoveTo.find((l) => l.direction === direction).id;
   expect(setDisplayContent).toHaveBeenCalledWith(locations.find((l) => l.id === id).description);
 }
