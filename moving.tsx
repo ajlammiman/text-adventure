@@ -1,14 +1,8 @@
 import React from 'react';
 import { Button } from './generic_components/button';
-import { Location } from './location';
-import { Direction } from './shared_types/direction';
-import { ActionButton } from './shared_types/action';
-
-type Location = {
-  direction: Direction;
-  id: number;
-};
-type Locations = Location[];
+import { Location, Locations } from './types/location';
+import { Direction } from './types/direction';
+import { ActionButton } from './types/action';
 
 type MoveProps = {
   locations: Locations;

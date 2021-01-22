@@ -1,13 +1,7 @@
 import React from 'react';
 import { Button } from './generic_components/button';
-import { Direction } from './shared_types/direction';
-
-type View = {
-  direction: Direction;
-  description: string;
-};
-
-export type Views = View[];
+import { Views } from './types/view';
+import { Direction } from './types/direction';
 
 interface LookDirection {
   direction: Direction;
