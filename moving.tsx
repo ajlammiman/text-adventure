@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './generic_components/button';
 import { Location } from './location';
 import { Direction } from './shared_types/direction';
+import { ActionButton } from './shared_types/action';
 
 type Location = {
   direction: Direction;
@@ -10,58 +11,58 @@ type Location = {
 type Locations = Location[];
 
 type MoveProps = {
-  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
   locations: Locations;
   locationLookup: LocationLookup;
-};
-
-type MoveInADirection = {
-  direction: Direction;
-  setDisplayContent: React.Dispatch<React.SetStateAction<string>>;
-  locations: Locations;
-  locationLookup: LocationLookup;
-};
-
-type MoveInADirectionProps = MoveInADirection;
+} & ActionButton;
 
 export interface LocationLookup {
   (location: Location): string;
 }
 
-function MoveInADirection({ direction, setDisplayContent, locations, locationLookup }: MoveInADirectionProps) {
-  return (
-    <Button name={direction} content={Move(direction, locations, locationLookup)} updateState={setDisplayContent} />
-  );
+interface FindLocation {
+  (direction: Direction, locations: Locations): Location;
 }
 
-function Move(direction: Direction, locations: Locations, locationLookup: LocationLookup) {
-  const location: Location = locations.find((l) => l.direction === direction) ?? { direction: 'Ahead', id: 0 };
+const FindLocation: FindLocation = function (direction: Direction, locations: Locations) {
+  return locations.find((l) => l.direction === direction) ?? { direction: 'Ahead', id: 0 };
+};
 
+function MoveMe(location: Location, locationLookup: LocationLookup) {
   return locationLookup(location);
+}
+
+function Move({ direction, setDisplayContent, locations, locationLookup }: MoveProps) {
+  return (
+    <Button
+      name={direction}
+      content={MoveMe(FindLocation(direction, locations), locationLookup)}
+      updateState={setDisplayContent}
+    />
+  );
 }
 
 export const Moving = ({ setDisplayContent, locations, locationLookup }: MoveProps) => {
   return (
     <>
-      <MoveInADirection
+      <Move
         direction="Ahead"
         setDisplayContent={setDisplayContent}
         locations={locations}
         locationLookup={locationLookup}
       />
-      <MoveInADirection
+      <Move
         direction="Behind"
         setDisplayContent={setDisplayContent}
         locations={locations}
         locationLookup={locationLookup}
       />
-      <MoveInADirection
+      <Move
         direction="Left"
         setDisplayContent={setDisplayContent}
         locations={locations}
         locationLookup={locationLookup}
       />
-      <MoveInADirection
+      <Move
         direction="Right"
         setDisplayContent={setDisplayContent}
         locations={locations}

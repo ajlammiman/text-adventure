@@ -9,10 +9,14 @@ interface ExtendedButtonProps {
 
 type ButtonProps = ExtendedButtonProps & DefaultButtonProps;
 
-export function Button({ name, content, updateState, ...allButtonProps }: ButtonProps) {
+interface Button {
+  ({ name, content, updateState, ...allButtonProps }: ButtonProps): JSX.Element;
+}
+
+export const Button: Button = function ({ name, content, updateState, ...allButtonProps }: ButtonProps) {
   return (
     <button onClick={() => updateState(content)} {...allButtonProps}>
       {name}
     </button>
   );
-}
+};
